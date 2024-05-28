@@ -1,0 +1,113 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #fff2e1;
+    overflow: hidden;
+}
+
+.navHeader{
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 5vw;
+    background: black;
+
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+.navHeader button{
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    cursor: pointer;;
+    background: none;
+    border: none;
+}
+
+/* math stylesheet */
+
+.calcsFrame{
+    width: fit-content;
+    height: fit-content;
+    padding: 25vh 5vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.calcsFrame button{
+    cursor: pointer;;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.8rem;
+    text-align: start;
+    font-weight: bold;
+}
+
+.calcsFrame button:hover{color: #0000EE;}
+
+/* inss stylesheet */
+
+.insscontainer{display: flex;}
+.leftcontainer{
+    width: 30vw;
+    height: fit-content;
+    float: left;
+    box-sizing: border-box;
+    padding: 25vh 5vw 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.rightcontainer{
+    width: 70vw;
+    height: fit-content;
+    float: right;
+    box-sizing: border-box;
+    padding: 25vh 5vw 0;
+}
+
+.insscontainer h1{margin: 0; font-size: 1.8rem;}
+.insscontainer button:active{transform: translateY(2px);}
+.insscontainer input:focus, textarea:focus, select:focus {outline: none;}
+.insscontainer input{
+    font-size: 1.4rem;
+    text-align: end;
+    width: 90%;
+    background: none;
+    border: none;
+    border-bottom: solid 2px #000;
+    margin: 3vh 0;
+}
+
+.leftcontainer button{
+    background: #fffaea;
+    border: none;
+    border-bottom: solid 2px #000;
+    border-right: solid 2px #000;
+    font-size: 1.4rem;
+    margin: 0 25px 0 auto;
+    padding: auto;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* script stylesheet */
+
+.scriptcontainer {
+    height: 100vh;
+    margin: 3.4rem 1.7rem;
+    gap: 1.7rem;
+    display: grid;
+    grid-template: 2fr 2fr 3.4rem/ 2fr 2fr;
+}
+
+textarea{
+    resize: none;
+}

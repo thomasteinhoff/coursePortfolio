@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSS</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="navHeader">
+        <button onclick="gotoPage1()">Math</button>
+        <button onclick="gotoPage2()">INSS</button>
+        <button onclick="gotoPage3()">Sandbox</button>
+    </div>
+
+    <div class="insscontainer">
+        <div class="leftcontainer">
+            <h1>Renda Mensal</h1>
+            <input type="text" id="income">
+            <h1>Dependentes</h1>
+            <input type="text" id="children">
+            <button onclick="inssCalc()">Calcular</button>
+        </div>
+        <div class="rightcontainer">
+            <h1>INSS</h1>
+            <input type="text" id="inss" placeholder="0.00" readonly>
+            <h1>IFFR</h1>
+            <input type="text" id="irrf" placeholder="0.00" readonly>
+            <h1>Renda Líquida</h1>
+            <input type="text" id="lincome" placeholder="0.00" readonly>
+        </div>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

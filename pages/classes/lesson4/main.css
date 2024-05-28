@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(assets/image1.png);
+    background-size: 100%;
+    border-top:solid+2px#F0A500;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    background-color: #002233;
+    width: 20vw;
+    height: calc(100vh - 2px);
+}
+.container h1{
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    color: white;
+    font-size: 1.4rem;
+    margin: 15px 25px;
+}
+.container h2{
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    color: white;
+    font-size: 0.8rem;
+    margin: 15px 25px;
+}
+.profileinput{
+    margin: 0 25px;
+    padding: 0.25rem 0;
+    color: white;
+    background-color: #001122;
+    border:solid+1px#F0A500;
+}
+.settinsbutton{
+    color: white;
+    padding: 10px 0 10px 90%;
+}
+.enterbutton{
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #002233;
+
+    margin: 20px 25px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #F0A500;
+    border:solid+2px#F0CB78;
+}
+.enterbutton:hover{background-color: #e09000}
+.enterbutton:active{background-color: #FFCF11;transform: translateY(1px);}
+.remember{
+    margin: 0 25px;
+    display: flex;
+}

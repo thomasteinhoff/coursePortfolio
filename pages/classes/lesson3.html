@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc IMC</title>
+    <style>
+        body{
+            background-color: beige;
+            margin: 0;
+            padding: 0;
+        }
+        .head{
+            background-color: #F1D000;
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            line-height: 40px;
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            background-color: #E9F5DC;
+            border-radius: 15px;
+            border: 1px solid black;
+            padding: 30px;
+            width: 300px;
+            height: 335px;
+            font-size: 40;
+        }
+        .shadow{
+            background-color: #808080;
+            border-radius: 15px;
+            margin: 100px;
+            padding: 15px;
+            width: 330px;
+            height: 365px;
+            font-size: 40;
+        }
+        .p1{
+            font-size: 24px;
+            font-weight: 100;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .p2{
+            font-size: 36px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: right;
+        }
+        .p3{
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">Calculadora de IMC</div>
+    <div class="main">
+        <div class="shadow">
+            <div class="box">
+                <h1 class="p1">Peso (Kg)</h1>
+                <input type="number" id="weight" name="weight">
+                <h1 class="p1">Altura (m)</h1>
+                <input type="number" id="height" name="height">
+                <h1 class="p1">Seu IMC: </h1>
+                <h1 id="result" value="0" class="p2"></h1>
+                <h1 id="bmi" class="p3"></h1>
+                <script>
+                    function calculate(){
+                        var n1 = parseFloat(document.getElementById('weight').value);
+                        var n2 = parseFloat(document.getElementById('height').value);
+                        var n3 = n1/(n2*n2);
+                        var icm;
+    
+                        if (isNaN(n1) || isNaN(n2)) {
+                            resultDiv.textContent = '';
+                            icm = '';
+                            return;
+                        }
+    
+                        if (n3 <= 18.5) {
+                            icm = "Abaixo do peso";
+                        } else if (n3 <= 24.9) {
+                            icm = "Intervalo normal";
+                        } else if (n3 <= 29.9) {
+                            icm = "Acima do peso";
+                        } else if (n3 <= 34.9) {
+                            icm = "Obesidade tipo I";
+                        } else if (n3 <= 39.9) {
+                            icm = "Obesidade tipo II";
+                        } else {
+                        icm = "Obesidade tipo III";
+                        }
+    
+                        document.getElementById('result').textContent = n3.toFixed(2);
+                        document.getElementById('bmi').textContent = icm;
+                    }
+                        
+                    document.getElementById('weight').addEventListener('input', calculate);
+                    document.getElementById('height').addEventListener('input', calculate);
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

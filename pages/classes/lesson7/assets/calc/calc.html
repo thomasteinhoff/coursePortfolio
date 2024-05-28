@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calc.css">
+    <script src="calc.js"></script>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="auxdisplay" readonly >
+        <input type="text" id="display" readonly >
+        <div class="buttons">
+            <span>Notação</span>
+            <span><input type="radio" name="notacao" value="in" checked /> In</span>
+            <span><input type="radio" name="notacao" value="pre" /> Pré</span>
+            <span><input type="radio" name="notacao" value="pos" /> Pós</span>
+            <button class="button" onclick="operator('(')">(</button>
+            <button class="button" onclick="operator(')')">)</button>
+            <button class="button" onclick="operator('√')">√</button>
+            <button class="button" onclick="operator('^')">^</button>
+            <button class="button whitebutton" onclick="appendToDisplay('7')">7</button>
+            <button class="button whitebutton" onclick="appendToDisplay('8')">8</button>
+            <button class="button whitebutton" onclick="appendToDisplay('9')">9</button>
+            <button class="button" onclick="operator('/')">/</button>
+            <button class="button whitebutton" onclick="appendToDisplay('4')">4</button>
+            <button class="button whitebutton" onclick="appendToDisplay('5')">5</button>
+            <button class="button whitebutton" onclick="appendToDisplay('6')">6</button>
+            <button class="button" onclick="operator('*')">*</button>
+            <button class="button whitebutton" onclick="appendToDisplay('1')">1</button>
+            <button class="button whitebutton" onclick="appendToDisplay('2')">2</button>
+            <button class="button whitebutton" onclick="appendToDisplay('3')">3</button>
+            <button class="button" onclick="operator('-')">-</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            <button class="button whitebutton" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="backspace()">←</button>
+            <button class="button" onclick="operator('+')">+</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="clearLast()">CE</button>
+            <button class="button" onclick="calculate()" style="grid-column: span 2;">=</button>
+        </div>
+    </div>
+    
+</body>
+</html> 

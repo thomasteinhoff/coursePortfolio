@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Maker</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="navHeader" style="position: absolute;">
+        <button onclick="gotoPage1()">Math</button>
+        <button onclick="gotoPage2()">INSS</button>
+        <button onclick="gotoPage3()">Sandbox</button>
+    </div>
+
+    <div class="scriptcontainer">
+        <textarea id="htmlinput" cols="30" rows="10" placeholder="html"></textarea>
+        <div id="code-output"></div>
+        <textarea id="cssinput" cols="30" rows="10" placeholder="css"></textarea>
+        <textarea id="jsinput" cols="30" rows="10" placeholder="javascript"></textarea>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

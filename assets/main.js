@@ -6,39 +6,43 @@ const subjects = [
     { name: "Data Science", content: "content/subject5.html" }
 ];
 
+let currentIndex = 0;
+const contentDiv = document.getElementById('content');
+
+function loadContent(index) {
+    fetch(subjects[index].content)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            contentDiv.innerHTML = data;
+        })
+        .catch(error => console.error('Error loading content:', error));
+}
+
+function showNext() {
+    currentIndex = (currentIndex + 1) % subjects.length;
+    loadContent(currentIndex);
+}
+
+function showPrevious() {
+    currentIndex = (currentIndex - 1 + subjects.length) % subjects.length;
+    loadContent(currentIndex);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const subjectsContainer = document.getElementById('subjectsContainer');
-    const contentDiv = document.getElementById('content');
-
-    subjects.forEach((subject) => {
+    subjects.forEach((subject, index) => {
         const subjectTag = document.createElement('div');
         subjectTag.className = 'subjectTag';
-        subjectTag.onclick = () => loadContent(subject.content);
-
-        const subjectName = document.createElement('h2');
-        subjectName.style.color = '#FFE6C7';
-        subjectName.textContent = subject.name;
-
-        const icon = document.createElement('i');
-        icon.className = 'fa-solid fa-chevron-right fa-lg';
-        icon.style.color = '#fa6000';
-
-        subjectTag.appendChild(subjectName);
-        subjectTag.appendChild(icon);
+        subjectTag.textContent = subject.name;
+        subjectTag.onclick = () => loadContent(index);
         subjectsContainer.appendChild(subjectTag);
     });
 
-    function loadContent(contentUrl) {
-        fetch(contentUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                contentDiv.innerHTML = data;
-            })
-            .catch(error => console.error('Error loading content:', error));
-    }
+    // Load initial content
+    loadContent(currentIndex);
 });

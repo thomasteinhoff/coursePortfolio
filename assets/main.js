@@ -7,17 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Data Science", content: "content/subject5.html" }
     ];
 
-    let currentIndex = null; // Inicialmente não há matéria selecionada
+    let currentIndex = null; // Initially no subject is selected
     const contentDiv = document.getElementById('content');
     const pageIndexDiv = document.querySelector('.pageIndex');
+    const initialCardsContainer = document.getElementById('initialCardsContainer');
 
     function loadContent(index) {
         if (index === null) {
-            // Se não houver matéria selecionada, exibe o conteúdo da página inicial
-            contentDiv.innerHTML = '<h2>Bem-vindo à Página Inicial!</h2>'; // Adapte conforme necessário
+            // If no subject is selected, show the initial cards container
+            initialCardsContainer.style.display = 'block';
+            // Load the content of the page
+            contentDiv.innerHTML = '<h2>Bem-vindo à Página Inicial!</h2>'; // Adjust as needed
             pageIndexDiv.innerHTML = '<i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i><h2>Home</h2>';
         } else {
-            // Se houver uma matéria selecionada, carrega o conteúdo da matéria
+            // If a subject is selected, hide the initial cards container
+            initialCardsContainer.style.display = 'none';
+            // Load the content of the selected subject
             fetch(subjects[index].content)
                 .then(response => {
                     if (!response.ok) {
@@ -57,5 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         subjectsContainer.appendChild(subjectTag);
     });
 
+    // Load initial content (initial cards container)
     loadContent(currentIndex);
 });

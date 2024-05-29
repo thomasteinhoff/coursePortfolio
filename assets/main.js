@@ -7,23 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Data Science", content: "content/subject5.html" }
     ];
 
-    let currentIndex = 0;
+    let currentIndex = null; // Inicialmente não há matéria selecionada
     const contentDiv = document.getElementById('content');
-    const initialCardsContainer = document.getElementById('initialCardsContainer');
+    const pageIndexDiv = document.querySelector('.pageIndex');
 
     function loadContent(index) {
-        fetch(subjects[index].content)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                contentDiv.innerHTML = data;
-                initialCardsContainer.style.display = 'none';
-            })
-            .catch(error => console.error('Error loading content:', error));
+        if (index === null) {
+            // Se não houver matéria selecionada, exibe o conteúdo da página inicial
+            contentDiv.innerHTML = '<h2>Bem-vindo à Página Inicial!</h2>'; // Adapte conforme necessário
+            pageIndexDiv.innerHTML = '<i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i><h2>Home</h2>';
+        } else {
+            // Se houver uma matéria selecionada, carrega o conteúdo da matéria
+            fetch(subjects[index].content)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    contentDiv.innerHTML = data;
+                    pageIndexDiv.innerHTML = `<a href="../index.html" style="text-decoration: none;">
+                                                  <div class="pageIndex" onclick="returnHome()">
+                                                      <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
+                                                      <h2>${subjects[index].name}</h2>
+                                                  </div>
+                                              </a>`;
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
     }
 
     function showNext() {
@@ -45,6 +57,5 @@ document.addEventListener("DOMContentLoaded", () => {
         subjectsContainer.appendChild(subjectTag);
     });
 
-    // Load initial content
     loadContent(currentIndex);
 });

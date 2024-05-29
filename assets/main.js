@@ -8,11 +8,12 @@ const subjects = [
 
 const subjectsContainer = document.getElementById('subjectsContainer');
 const contentContainer = document.getElementById('content');
+const subjectHeader = document.querySelector('.pageIndex');
 
 subjects.forEach((subject, index) => {
     const subjectTag = document.createElement('div');
     subjectTag.className = 'subjectTag';
-    subjectTag.onclick = () => loadContent(subject.page);
+    subjectTag.onclick = () => loadContent(subject);
 
     const subjectName = document.createElement('h2');
     subjectName.style.color = '#FFE6C7';
@@ -27,8 +28,8 @@ subjects.forEach((subject, index) => {
     subjectsContainer.appendChild(subjectTag);
 });
 
-function loadContent(page) {
-    fetch(`content/${page}`)
+function loadContent(selectedSubject) {
+    fetch(`content/${selectedSubject.page}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -37,6 +38,30 @@ function loadContent(page) {
         })
         .then(data => {
             contentContainer.innerHTML = data;
+            updateSubjectHeader(selectedSubject.name);
         })
         .catch(error => console.error('Error loading content:', error));
+}
+
+function updateSubjectHeader(subjectName) {
+    if (subjectName === "Home") {
+        subjectHeader.innerHTML = `
+            <i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i>
+            <h2>${subjectName}</h2>
+        `;
+    } else {
+        subjectHeader.innerHTML = `
+            <a href="../index.html" style="text-decoration: none;">
+                <div class="pageIndex" onclick="returnHome()">
+                    <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
+                    <h2>${subjectName}</h2>
+                </div>
+            </a>
+        `;
+    }
+}
+
+function returnHome() {
+    contentContainer.innerHTML = '';
+    updateSubjectHeader('Home');
 }

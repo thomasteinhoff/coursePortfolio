@@ -1,35 +1,44 @@
 const subjects = [
-    { name: "Industrial Automation", page: "subject1.html" },
-    { name: "Web Development", page: "subject2.html" },
-    { name: "Programming Languages", page: "subject3.html" },
-    { name: "Database", page: "subject4.html" },
-    { name: "Data Science", page: "subject5.html" }
+    { name: "Industrial Automation", content: "content/subject1.html" },
+    { name: "Web Development", content: "content/subject2.html" },
+    { name: "Programming Languages", content: "content/subject3.html" },
+    { name: "Database", content: "content/subject4.html" },
+    { name: "Data Science", content: "content/subject5.html" }
 ];
 
-const subjectsContainer = document.getElementById('subjectsContainer');
+document.addEventListener("DOMContentLoaded", () => {
+    const subjectsContainer = document.getElementById('subjectsContainer');
+    const contentDiv = document.getElementById('content');
 
-subjects.forEach((subject, index) => {
-    const subjectTag = document.createElement('div');
-    subjectTag.className = 'subjectTag';
-    subjectTag.onclick = () => redirect(index + 1);
+    subjects.forEach((subject) => {
+        const subjectTag = document.createElement('div');
+        subjectTag.className = 'subjectTag';
+        subjectTag.onclick = () => loadContent(subject.content);
 
-    const subjectName = document.createElement('h2');
-    subjectName.style.color = '#FFE6C7';
-    subjectName.textContent = subject.name;
+        const subjectName = document.createElement('h2');
+        subjectName.style.color = '#FFE6C7';
+        subjectName.textContent = subject.name;
 
-    const icon = document.createElement('i');
-    icon.className = 'fa-solid fa-chevron-right fa-lg';
-    icon.style.color = '#fa6000';
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-chevron-right fa-lg';
+        icon.style.color = '#fa6000';
 
-    subjectTag.appendChild(subjectName);
-    subjectTag.appendChild(icon);
-    subjectsContainer.appendChild(subjectTag);
+        subjectTag.appendChild(subjectName);
+        subjectTag.appendChild(icon);
+        subjectsContainer.appendChild(subjectTag);
+    });
+
+    function loadContent(contentUrl) {
+        fetch(contentUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                contentDiv.innerHTML = data;
+            })
+            .catch(error => console.error('Error loading content:', error));
+    }
 });
-
-function redirect(page) {
-    const subject = subjects[page - 1];
-    if (subject)
-        window.location.href = `pages/${subject.page}`;
-    else
-        console.error('Invalid page:', page);
-}

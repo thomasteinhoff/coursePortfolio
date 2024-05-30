@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    updateSubjectHeader('Home');
-
     const subjects = [
         { name: "Industrial Automation", page: "subject1.html" },
         { name: "Web Development", page: "subject2.html" },
@@ -8,29 +6,29 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Database", page: "subject4.html" },
         { name: "Data Science", page: "subject5.html" }
     ];
-    
+
     const subjectHeader = document.getElementById('subjectHeader');
     const subjectsContainer = document.getElementById('subjectsContainer');
     const contentContainer = document.getElementById('content');
-    
+
     subjects.forEach((subject, index) => {
         const subjectTag = document.createElement('div');
         subjectTag.className = 'subjectTag';
         subjectTag.onclick = () => loadContent(subject);
-    
+
         const subjectName = document.createElement('h2');
         subjectName.style.color = '#FFE6C7';
         subjectName.textContent = subject.name;
-    
+
         const icon = document.createElement('i');
         icon.className = 'fa-solid fa-chevron-right fa-lg';
         icon.style.color = '#fa6000';
-    
+
         subjectTag.appendChild(subjectName);
         subjectTag.appendChild(icon);
         subjectsContainer.appendChild(subjectTag);
     });
-    
+
     function loadContent(selectedSubject) {
         fetch(`content/${selectedSubject.page}`)
             .then(response => {
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => console.error('Error loading content:', error));
     }
-    
+
     function updateSubjectHeader(subjectName) {
         if (subjectName === "Home") {
             subjectHeader.innerHTML = `
@@ -63,6 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         }
     }
-    
-    function returnHome() {updateSubjectHeader('Home');}    
+
+    function returnHome() {
+        try {
+            contentContainer.innerHTML = '';
+            updateSubjectHeader('Home');
+        } catch (error) {
+            console.error('An error occurred while returning home:', error);
+        }
+    }
 });

@@ -47,7 +47,7 @@ function updateSubjectHeader(subjectName) {
     if (subjectName === "Home") {
         subjectHeader.innerHTML = `
             <i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i>
-            <h2>${subjectName}</h2>
+            <h2>Home</h2>
         `;
     } else {
         subjectHeader.innerHTML = `

@@ -6,9 +6,9 @@ const subjects = [
     { name: "Data Science", page: "subject5.html" }
 ];
 
+const subjectHeader = document.getElementById('subjectHeader');
 const subjectsContainer = document.getElementById('subjectsContainer');
 const contentContainer = document.getElementById('content');
-const subjectHeader = document.getElementById('subjectHeader');
 
 subjects.forEach((subject, index) => {
     const subjectTag = document.createElement('div');
@@ -61,7 +61,4 @@ function updateSubjectHeader(subjectName) {
     }
 }
 
-function returnHome() {
-    contentContainer.innerHTML = '';
-    updateSubjectHeader('Home');
-}
+function returnHome() {updateSubjectHeader('Home');}

@@ -8,10 +8,7 @@ const subjects = [
 
 const subjectsContainer = document.getElementById('subjectsContainer');
 const contentContainer = document.getElementById('content');
-let homeSubjectHeader = `
-    <i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i>
-    <h2>Home</h2>
-`;
+const subjectHeader = document.getElementById('subjectHeader');
 
 subjects.forEach((subject, index) => {
     const subjectTag = document.createElement('div');
@@ -48,9 +45,12 @@ function loadContent(selectedSubject) {
 
 function updateSubjectHeader(subjectName) {
     if (subjectName === "Home") {
-        subjectHeader.innerHTML = homeSubjectHeader;
+        subjectHeader.innerHTML = `
+            <i class="fa-solid fa-house fa-lg" style="color: #ff6000;"></i>
+            <h2>${subjectName}</h2>
+        `;
     } else {
-        const backButtonHeader = `
+        subjectHeader.innerHTML = `
             <a href="../index.html" style="text-decoration: none;">
                 <div class="pageIndex" onclick="returnHome()">
                     <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
@@ -58,7 +58,6 @@ function updateSubjectHeader(subjectName) {
                 </div>
             </a>
         `;
-        subjectHeader.innerHTML = backButtonHeader;
     }
 }
 

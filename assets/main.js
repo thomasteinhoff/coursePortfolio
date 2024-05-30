@@ -1,4 +1,3 @@
-// Declaração das variáveis globais
 const subjects = [
     { name: "Industrial Automation", page: "subject1.html" },
     { name: "Web Development", page: "subject2.html" },
@@ -7,11 +6,28 @@ const subjects = [
     { name: "Data Science", page: "subject5.html" }
 ];
 
-let subjectHeader;
-let subjectsContainer;
-let contentContainer;
+const subjectHeader = document.getElementById('subjectHeader');
+const subjectsContainer = document.getElementById('subjectsContainer');
+const contentContainer = document.getElementById('content');
 
-// Função para carregar o conteúdo da matéria selecionada
+subjects.forEach((subject, index) => {
+    const subjectTag = document.createElement('div');
+    subjectTag.className = 'subjectTag';
+    subjectTag.onclick = () => loadContent(subject);
+
+    const subjectName = document.createElement('h2');
+    subjectName.style.color = '#FFE6C7';
+    subjectName.textContent = subject.name;
+
+    const icon = document.createElement('i');
+    icon.className = 'fa-solid fa-chevron-right fa-lg';
+    icon.style.color = '#fa6000';
+
+    subjectTag.appendChild(subjectName);
+    subjectTag.appendChild(icon);
+    subjectsContainer.appendChild(subjectTag);
+});
+
 function loadContent(selectedSubject) {
     fetch(`content/${selectedSubject.page}`)
         .then(response => {
@@ -27,7 +43,6 @@ function loadContent(selectedSubject) {
         .catch(error => console.error('Error loading content:', error));
 }
 
-// Função para atualizar o cabeçalho da matéria
 function updateSubjectHeader(subjectName) {
     if (subjectName === "Home") {
         subjectHeader.innerHTML = `
@@ -46,39 +61,7 @@ function updateSubjectHeader(subjectName) {
     }
 }
 
-// Função para voltar para a página inicial
 function returnHome() {
-    try {
-        contentContainer.innerHTML = '';
-        updateSubjectHeader('Home');
-    } catch (error) {
-        console.error('An error occurred while returning home:', error);
-    }
+    contentContainer.innerHTML = '';
+    updateSubjectHeader('Home');
 }
-
-// Evento DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Inicialização das variáveis
-    subjectHeader = document.getElementById('subjectHeader');
-    subjectsContainer = document.getElementById('subjectsContainer');
-    contentContainer = document.getElementById('content');
-
-    // Loop para criar os cards das matérias
-    subjects.forEach((subject, index) => {
-        const subjectTag = document.createElement('div');
-        subjectTag.className = 'subjectTag';
-        subjectTag.onclick = () => loadContent(subject);
-
-        const subjectName = document.createElement('h2');
-        subjectName.style.color = '#FFE6C7';
-        subjectName.textContent = subject.name;
-
-        const icon = document.createElement('i');
-        icon.className = 'fa-solid fa-chevron-right fa-lg';
-        icon.style.color = '#fa6000';
-
-        subjectTag.appendChild(subjectName);
-        subjectTag.appendChild(icon);
-        subjectsContainer.appendChild(subjectTag);
-    });
-});

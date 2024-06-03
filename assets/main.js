@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const subjects = [
-        { name: "Industrial Automation", page: "subject1.html" },
-        { name: "Web Development", page: "subject2.html" },
-        { name: "Programming Languages", page: "subject3.html" },
-        { name: "Database", page: "subject4.html" },
-        { name: "Data Science", page: "subject5.html" }
+        { name: "Industrial Automation",    page: "subject1.html" },
+        { name: "Web Development",          page: "subject2.html" },
+        { name: "Programming Languages",    page: "subject3.html" },
+        { name: "Database",                 page: "subject4.html" },
+        { name: "Data Science",             page: "subject5.html" }
     ];
 
     const homeHeader = document.getElementById('homeHeader');
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateSubjectHeader(subjectName) {
         subjectHeader.innerHTML = `
-            <div class="pageIndex" onclick="returnHome()">
+            <div class="pageIndex" onclick="returnHome()" style="cursor: pointer">
                 <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
                 <h2>${subjectName}</h2>
             </div>
@@ -59,11 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function returnHome() {
-    const contentContainer = document.getElementById('content'); // Adicione esta linha
-    if (contentContainer) { // Verifique se o elemento foi encontrado
+    const contentContainer = document.getElementById('content');
+    if (contentContainer) {
         contentContainer.innerHTML = '';
         subjectsContainer.style.display = 'block';
-        homeHeader.style.display = 'flex';
+        homeHeader.style.display = 'flex';          // Securing an correct display of the header
         subjectHeader.innerHTML = '';
         subjectHeader.style.display = 'none';
     } else

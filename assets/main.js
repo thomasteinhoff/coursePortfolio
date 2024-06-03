@@ -51,7 +51,7 @@ function updateSubjectHeader(subjectName) {
         `;
     } else {
         subjectHeader.innerHTML = `
-            <a href="../index.html" style="text-decoration: none;">
+            <a href="javascript:void(0)" style="text-decoration: none;" onclick="returnHome()">
                 <div class="pageIndex" onclick="returnHome()">
                     <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
                     <h2>${subjectName}</h2>

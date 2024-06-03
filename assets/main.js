@@ -49,10 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateSubjectHeader(subjectName) {
         subjectHeader.innerHTML = `
-            <div class="pageIndex" onclick="returnHome()">
-                <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
-                <h2>${subjectName}</h2>
-            </div>
+            <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
+            <h2>${subjectName}</h2>
         `;
         subjectHeader.style.display = 'block';
     }
@@ -65,6 +63,5 @@ document.addEventListener("DOMContentLoaded", () => {
         subjectHeader.style.display = 'none';
     }
 
-    // Initialize the home view
     returnHome();
 });

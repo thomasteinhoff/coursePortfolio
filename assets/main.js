@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const homeHeader = document.getElementById('homeHeader');
-    console.log(homeHeader);
     const subjectHeader = document.getElementById('subjectHeader');
     const subjectsContainer = document.getElementById('subjectsContainer');
     const contentContainer = document.getElementById('content');
@@ -57,14 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         subjectHeader.style.display = 'block';
     }
-
-    function returnHome() {
-        contentContainer.innerHTML = '';
-        subjectsContainer.style.display = 'block';
-        homeHeader.style.display = 'flex';
-        subjectHeader.innerHTML = '';
-        subjectHeader.style.display = 'none';
-    }
-    console.log(homeHeader);
-    returnHome();
 });
+
+function returnHome() {
+    contentContainer.innerHTML = '';
+    subjectsContainer.style.display = 'block';
+    homeHeader.style.display = 'flex';
+    subjectHeader.innerHTML = '';
+    subjectHeader.style.display = 'none';
+}
+
+returnHome();

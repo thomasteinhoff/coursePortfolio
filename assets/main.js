@@ -64,6 +64,4 @@ document.addEventListener("DOMContentLoaded", () => {
         subjectHeader.innerHTML = '';
         subjectHeader.style.display = 'none';
     }
-
-    returnHome();
 });

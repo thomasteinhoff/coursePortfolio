@@ -59,11 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function returnHome() {
-    document.getElementById('content').innerHTML = '';
-    subjectsContainer.style.display = 'block';
-    homeHeader.style.display = 'flex';
-    subjectHeader.innerHTML = '';
-    subjectHeader.style.display = 'none';
+    const contentContainer = document.getElementById('content'); // Adicione esta linha
+    if (contentContainer) { // Verifique se o elemento foi encontrado
+        contentContainer.innerHTML = '';
+        subjectsContainer.style.display = 'block';
+        homeHeader.style.display = 'flex';
+        subjectHeader.innerHTML = '';
+        subjectHeader.style.display = 'none';
+    } else
+        console.error("Elemento 'content' não encontrado.");
 }
 
 returnHome();

@@ -48,19 +48,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateSubjectHeader(subjectName) {
-        subjectHeader.innerHTML = `
-            <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
-            <h2>${subjectName}</h2>
-        `;
-        subjectHeader.style.display = 'block';
+        const homeHeader = document.getElementById('homeHeader');
+        const subjectHeader = document.getElementById('subjectHeader');
+    
+        if (subjectName === "Home") {
+            homeHeader.style.display = 'block';
+            subjectHeader.style.display = 'none';
+        } else {
+            homeHeader.style.display = 'none';
+            subjectHeader.style.display = 'block';
+    
+            subjectHeader.innerHTML = `
+                <div class="pageIndex" onclick="returnHome()">
+                    <i class="fa-solid fa-chevron-left fa-lg" style="color: #ff6000;"></i>
+                    <h2>${subjectName}</h2>
+                </div>
+            `;
+        }
     }
 
     function returnHome() {
         contentContainer.innerHTML = '';
         subjectsContainer.style.display = 'block';
-        homeHeader.style.display = 'flex';
-        subjectHeader.innerHTML = '';
-        subjectHeader.style.display = 'none';
     }
 
     returnHome();

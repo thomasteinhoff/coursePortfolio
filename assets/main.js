@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function returnHome() {
-    contentContainer.innerHTML = '';
+    document.getElementById('content').innerHTML = '';
     subjectsContainer.style.display = 'block';
     homeHeader.style.display = 'flex';
     subjectHeader.innerHTML = '';

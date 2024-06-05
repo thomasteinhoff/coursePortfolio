@@ -41,14 +41,6 @@ body {
 
 .subjectTag:hover {transform: translateX(10px);}
 
-.card1 {
-    margin: 25px 10vw;
-    padding: 1q 1vw .5vw;
-    background: #2B2B2B;
-    color: #FFE6C7;
-    border-radius: 10px;
-}
-
 .webDevList {
     margin: 0;
     display: flex;
@@ -57,4 +49,17 @@ body {
     text-decoration: none;
     line-height: .5rem;
     color: #FFA559;
+}
+
+.card1 {
+    margin: 25px 10vw;
+    padding: 1q 1vw .5vw;
+    background: #2B2B2B;
+    color: #FFF;
+    border-radius: 10px;
+}
+
+.card2 {
+    display: flex;
+    margin: 25px 10vw;
 }

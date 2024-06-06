@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../assets/style.css">
+
+<!--Java Card-->
 <div class="card1">
     <img src="../assets/graphics/intellijpjava.png" alt="IntelliJ plus Java logo" style="float: right; width: 200px; margin: 1vw;">
     <h2 style="color: #FFE6C7;">Java</h2>
@@ -7,13 +10,32 @@
     <a href="https://github.com/thomasteinhoff/Listas-Java" target="_blank" style="text-decoration: none; color: #FFA559;"><h3>https://github.com/thomasteinhoff/Listas-Java</h3></a>
     <div style="clear: both;"></div>
 </div>
+<!--OOP Card-->
 <div class="card1">
-    <h2 style="color: #FFE6C7;">OOP -  Project Analysis</h2>
+    <h2 style="color: #FFE6C7;">Object Oriented Programming -  Project Analysis</h2>
     <h3>&nbsp;I'd like to take an special look into one of the exercises: In the last from the 6th list, i managed to make an turn-based text rpg, where i could put in proof what i've been studing, like repeating loops, decision estructures, oop and even frames.</h3>
 </div>
-<div class="card2">
-    <img src="../assets/graphics/srcFiles.png" alt="Classes of the java project">
-    <div class="card1">
-        <h3>Here we can see the classes i created to this game. Turning the player and boss into objects granted me an easier way to manipulate it atributes, the "parryWindow" is also an object becouse it uses a window, we gonna se it more further.</h3>
+
+<!--Program Explanation - Classes-->
+<div class="card2" style="padding: 0 8vw;">
+    <img src="../assets/graphics/srcFiles.png" alt="Classes of the java project" width="300px" height="169px">
+    <div class="card1" style="margin: 0; background: none;">
+        <h3>Here we can see the classes i created to this game. Turning the player and boss into objects granted me an easier way to manipulate it atributes, the "parryWindow" is also an object, but we gonna se it more further.</h3>
+        <h3>&nbsp;By now, heres the full explained <button class="card2button" onclick="toggleMainCode()">Main</button></h3>
     </div>
 </div>
+
+<!--Program Explanation - Class Main-->
+<div id="mainJCode" style="padding-top: 5%;">
+    <div class="card3">
+        <p>The main starts normally, importing libraries and instancing the player and others objects</p>
+        <p>How the history is like you're in the end of an adventure, i used the random class to pick in an range to health, strength and defense, to simulate you've passed a lot of battles</p>
+    </div>
+    <div class="card3" style="margin-top: 20%;"><p>A bit of story to context the player...</p></div>
+    <div class="card3" style="margin-top: 5%;">
+        <p>The battle consists in turns, so the principle of the code is: your move, the boss's move and then an function to analyse the state of the battle, if you died, if the boss died, etc </p>
+        <p>Now and further in this code, i utilize the outerloop system to be able to choose when i want to simply restart an loop or if i want to break this loop</p>
+    </div>
+</div>
+
+<script src="../assets/subj3.js"></script>

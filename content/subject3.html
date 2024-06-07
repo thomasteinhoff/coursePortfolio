@@ -21,20 +21,54 @@
     <img src="../assets/graphics/srcFiles.png" alt="Classes of the java project" width="300px" height="169px">
     <div class="card1" style="margin: 0; background: none;">
         <h3>Here we can see the classes i created to this game. Turning the player and boss into objects granted me an easier way to manipulate it atributes, the "parryWindow" is also an object, but we gonna se it more further.</h3>
-        <h3>&nbsp;By now, heres the full explained <button class="card2button" onclick="toggleMainCode()">Main</button></h3>
+        <h3>&nbsp;By now, heres the full explained <button class="cardInTextbutton" onclick="toggleMainCode()">Main</button></h3>
     </div>
 </div>
 
 <!--Program Explanation - Class Main-->
-<div id="mainJCode" style="padding-top: 5%;">
+<div id="mainJCode" style="padding-top: 2%;">
     <div class="card3">
-        <p>The main starts normally, importing libraries and instancing the player and others objects</p>
+        <p>The main starts normally, importing libraries and instancing the player and others objects, the player class requires signatures since you choose your name, the other stats are auto filled</p>
         <p>How the history is like you're in the end of an adventure, i used the random class to pick in an range to health, strength and defense, to simulate you've passed a lot of battles</p>
     </div>
-    <div class="card3" style="margin-top: 20%;"><p>A bit of story to context the player...</p></div>
-    <div class="card3" style="margin-top: 5%;">
-        <p>The battle consists in turns, so the principle of the code is: your move, the boss's move and then an function to analyse the state of the battle, if you died, if the boss died, etc </p>
-        <p>Now and further in this code, i utilize the outerloop system to be able to choose when i want to simply restart an loop or if i want to break this loop</p>
+
+    <div class="card3" style="margin-top: 20%;">
+        <p>The story is told in the console, certain points is required a response of t he player to progress, empty scanners serves to prevent the code to continue. That while loop exists to prevent the story to continue until the player agrees with the condition he is told</p>
+    </div>
+
+    <div class="card3" style="margin-top: 2%;">
+        <p>The battle consists in turns, so the principle of the code is: your move, the boss's move and then an function to analyse the state of the battle: if you died, if the boss died, etc </p>
+        <p>Now and further in this code, i utilize the outerloop system to be able to choose when i want to simply restart an loop or if i want to break and continue with the code</p>
+        <p>How the turns are based in pre determinated choises, to both opponents, i turned them into functions, by doing so i can keep the loop clean and functional</p>
+        <p>A switch case interprets how the battle is going in basis of a number the checkBattleState() return to it</p>
+    </div>
+
+    <div class="card3" style="margin-top: 20%;">
+        <p>By speaking of the functions, i have some others that also help me through the code</p>
+        <p>The 𝘳𝘢𝘯𝘥 function serve to quickly pick a number in a range i choose in the signature</p>
+        <p>The 𝘥𝘦𝘭𝘢𝘺 uses the native 𝘴𝘭𝘦𝘦𝘱 fucntion to make the routine wait a certain period</p>
+        <p>And the 𝘤𝘩𝘦𝘤𝘬𝘉𝘢𝘵𝘵𝘭𝘦𝘚𝘵𝘢𝘵𝘦 whose undergoes a series of comparasions that return the state of the battle, the condition is treated in the main loop </p>
+    </div>
+
+    <div class="card3" style="margin-top: 2%;">
+        <p>The boss uses an stagger system, which is basically an endurance attribute, each attack increases it's value, the functions reads it and actuate according to. Example: if it passes 100 points, the boss faint and reveals a weak spot</p>
+    </div>
+
+    <div class="card3" style="margin-top: 20%;">
+        <p>Another series of tests and the boss acts accordingly to an algorithm, attacking, preparing the attack, etc...</p>
+        <p>Some parts of the code utilizes try/catches in sensitive code whose may crash the routine</p>
+        <p>In this case the latch is used to the delay, it's required to the parry window to response properly to the code</p>
+    </div>
+
+    <div class="card3" style="margin-top: 22%;">
+        <p>The player moveset is not too diferent, here we can see the use of a switch case reading the player input</p>
+        <p>You can also see that the switch is inside an outerloop, the idea is to handle wrong inputs and to the player be able to rethink his actions, its easier than recursivity and grants a satisfatory responsivity</p>
+        <p>The code utilizes various getters from the classes to determine the player options</p>
+    </div>
+
+    <div class="card3" style="text-align: end; background: none;">
+        <h1><a href="https://github.com/thomasteinhoff/Listas-Java/blob/main/Lista6/list6ex03/src/Main.java" target="_blank">See full code</a></h1>
+        <button onclick="toggleMainCode()">Close card</button>
     </div>
 </div>
 

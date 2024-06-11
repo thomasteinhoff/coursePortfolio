@@ -21,13 +21,13 @@
     <img src="../assets/graphics/srcFiles.png" alt="Classes of the java project" width="300px" height="169px">
     <div class="card1" style="margin: 0; background: none;">
         <h3>Here we can see the classes i created to this game. Turning the player and boss into objects granted me an easier way to manipulate it atributes, the "parryWindow" is also an object, but we gonna se it more further.</h3>
-        <h3>&nbsp;By now, heres the full explained <button class="cardInTextbutton" onclick="toggleMainCode()">Main</button></h3>
+        <h3>&nbsp;By now, heres the full explained <button id="buttonMainJCode" class="cardInTextbutton" onclick="toggleMainJCode()">Main</button></h3>
     </div>
 </div>
 
 <!--Program Explanation - Class Main-->
-<div id="mainJCode" style="padding-top: 2%;">
-    <div class="card3">
+<div id="mainJCode" class="codeExplanationPL" style="padding-top: 2%;">
+    <div class="card3" style="margin-top: 2%;">
         <p>The main starts normally, importing libraries and instancing the player and others objects, the player class requires signatures since you choose your name, the other stats are auto filled</p>
         <p>How the history is like you're in the end of an adventure, i used the random class to pick in an range to health, strength and defense, to simulate you've passed a lot of battles</p>
     </div>
@@ -66,8 +66,31 @@
         <p>The code utilizes various getters from the classes to determine the player options</p>
     </div>
 
-    <div class="card3" style="text-align: end; background: none;">
-        <h1><a href="https://github.com/thomasteinhoff/Listas-Java/blob/main/Lista6/list6ex03/src/Main.java" target="_blank">See full code</a></h1>
-        <button onclick="toggleMainCode()">Close card</button>
+    <div class="card1" style="padding: 10px 40px; margin-top: 30%; margin-left: 70%; display: flex; flex-direction: column; align-items: end; width: fit-content; gap: 5px;">
+        <a class="codeExControls" href="https://github.com/thomasteinhoff/Listas-Java/blob/main/Lista6/list6ex03/src/Main.java" target="_blank">See full code</a>
+        <button class="codeExControls" style="color: #fff;" onclick="toggleMainJCode()">Close card</button>
     </div>
 </div>
+<!--Program Explanation - Class Main-->
+
+<div class="card4">
+    <button id="buttonCharJCode" class="cardGridItem" onclick="toggleCode('charJCode', 'codeCharJ')"><h2>Character</h2></button>
+    <button id="buttonBossJCode" class="cardGridItem" onclick="toggleCode('bossJCode', 'codeBossJ')"><h2>Boss</h2></button>
+    <button id="buttonParryJCode" class="cardGridItem" onclick="toggleCode('parryJCode', 'codeParryJ')"><h2>Parry</h2></button>
+</div>
+
+<div id="charJCode" class="codeExplanationPL">
+    <div class="card3">
+        <p>The atributes are inicialized together the constructor</p>
+        <p>How some of the values are already generated in the main, they are added as sisgnature normally</p>
+        <p>Some of the attributes are fix to the start of the run, so they are insancied alone</p>
+    </div>
+</div>
+
+<div id="bossJCode" class="codeExplanationPL">
+</div>
+
+<div id="parryJCode" class="codeExplanationPL">
+</div>
+
+<script src="../assets/subj3.js"></script>

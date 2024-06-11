@@ -98,10 +98,48 @@
     </div>
 </div>
 
-<div id="bossJCode" class="codeExplanationPL">
+<div id="bossJCode" class="codeExplanationPL" style="padding-top: 30%;">
+    <div class="card3">
+        <p>The boss doesn't have any attribute that may variate, so the constructor doesn't have any signature and starts with standart values</p>
+    </div>
+
+    <div class="card3" style="margin-top: 33%;">
+        <p>Here's a simple decision process to check if the player has checked the boss status or not yet</p>
+    </div>
+
+    <div class="card3" style="margin-top: 25%;"><p>The rest of the class is not much different from the Character class</p></div>
 </div>
 
-<div id="parryJCode" class="codeExplanationPL">
+<div id="parryJCode" class="codeExplanationPL" style="padding-top: 17%;">
+    <div class="card3">
+        <p>First i import some librarires in the class, since they are not used in the main code, like the timer functions and the awt to the window features</p>
+    </div>
+
+    <div class="card3" style="margin-top: 10%;"><p>We hair the JFrame class and create the attributes</p></div>
+
+    <div class="card3" style="margin-top: 15%;">
+        <p>The constructor administrate the window and the latch, which i call to pause the main run while the player interage with the parry window</p>
+        <p>The super works as a constructor, the signature is the name that will show in the window tab</p>
+        <p>The size, behavior when closed and location are also determinated here</p>
+    </div>
+
+    <div class="card3" style="margin-top: 34%;">
+        <p>Here is prepared a function, where a button is created, it also determinate what happens when clicked: flags the parry, end the latch and dispose the window</p>
+        <p>Just after this the function is called</p>
+    </div>
+
+    <div class="card3" style="margin-top: 20%;">
+        <p>While the window is created and functionate, this part of the code, inside the latch continues</p>
+        <p>Another function of a timer is created, where counts up to 2 seconds</p>
+        <p>If the button previously created is pressed, it ends the latch and the timer is ignored, if not, at the end of the timer, itself end the latch, the window and flags the parry as false</p>
+    </div>
+
+    <div class="card3" style="margin-top: 5%;"><p>An unique getter is used, to verify the state of the parry</p></div>
+
+    <div class="card3" style="margin-top: 26%;">
+        <p>This class only function is to create a new latch which runs what you just read</p>
+    </div>
+
 </div>
 
 <script src="../assets/subj3.js"></script>

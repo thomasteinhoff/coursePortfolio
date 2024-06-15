@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Subjects name and file titles
     const subjects = [
         { name: "Industrial Automation",    page: "subject1.html" },
         { name: "Web Development",          page: "subject2.html" },
@@ -13,10 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentContainer = document.getElementById('content');
 
     subjects.forEach((subject) => {
+        // Creating each subject div with it`s class
         const subjectTag = document.createElement('div');
         subjectTag.className = 'subjectTag';
         subjectTag.onclick = () => loadContent(subject);
 
+        // Pulls the name from the matrix
         const subjectName = document.createElement('h2');
         subjectName.style.color = '#FFE6C7';
         subjectName.textContent = subject.name;
@@ -25,28 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.className = 'fa-solid fa-chevron-right fa-lg';
         icon.style.color = '#fa6000';
 
+        // Display in the html
         subjectTag.appendChild(subjectName);
         subjectTag.appendChild(icon);
         subjectsContainer.appendChild(subjectTag);
     });
 
+    // Loads the html from the subject html pulling the file title from the matrix
     function loadContent(selectedSubject) {
         fetch(`content/${selectedSubject.page}`)
+            // Handling possible errors
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.text();
             })
+            // Switch the html from the tags to the content
             .then(data => {
-                contentContainer.innerHTML = data;
-                subjectsContainer.style.display = 'none';
-                homeHeader.style.display = 'none';
-                updateSubjectHeader(selectedSubject.name);
+                contentContainer.innerHTML = data;          // Append the div
+                subjectsContainer.style.display = 'none';   // Hides the tags
+                homeHeader.style.display = 'none';          // Hides the sub header
+                updateSubjectHeader(selectedSubject.name);  // Updates the div
             })
             .catch(error => console.error('Error loading content:', error));
     }
 
+    // Updates the sub header, common in every subject
     function updateSubjectHeader(subjectName) {
         subjectHeader.innerHTML = `
             <div class="pageIndex" onclick="returnHome()" style="cursor: pointer">
@@ -58,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Returns the html to the original state
 function returnHome() {
     const contentContainer = document.getElementById('content');
     if (contentContainer) {
@@ -70,4 +79,5 @@ function returnHome() {
         console.error("Elemento 'content' não encontrado.");
 }
 
+// Calls the home when the site is loaded
 returnHome();

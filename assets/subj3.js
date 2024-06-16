@@ -3,7 +3,7 @@ function toggleMainJCode() {
     var element = document.getElementById("mainJCode");
     if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "block";
-        element.style.width = "100vw";
+        element.style.width = "99vw";
 
         var image = new Image();
         image.src = '../assets/graphics/codeMainJ.png';

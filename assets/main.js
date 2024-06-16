@@ -81,3 +81,21 @@ function returnHome() {
 
 // Calls the home when the site is loaded
 returnHome();
+
+// Detects the page scroll
+window.onscroll = function() {scrollFunction()};
+
+// Tolerance
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrollTopBtn").style.display = "block";
+  } else {
+    document.getElementById("scrollTopBtn").style.display = "none";
+  }
+}
+
+// Returning to the start of the page
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

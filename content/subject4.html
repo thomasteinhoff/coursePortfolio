@@ -1,7 +1,12 @@
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/main.js"></script>
+<script src="https://kit.fontawesome.com/d6a12ba020.js" crossorigin="anonymous"></script>
+<button onclick="scrollToTop()" id="scrollTopBtn"><i class="fa-solid fa-circle-up fa-2xl" style="color: #ff6000;"></i></button>
 
+
+<!--SQL-->
 <div class="card1">
-    <h2 style="color: #FFE6C7;">Data model</h2>
+    <h2 style="color: #FFE6C7;">Structured Data Base</h2>
     <h3>&nbsp;With the PotsgreSQL we studied and created relational databases, which are those organized in interrelated tables with a fixed schema and predefined formats.</h3>
     <h3>&nbsp;This type of database uses single commands based on queries, which are also separated into three main groups (there are other more specific groups)</h3>
 </div>
@@ -31,3 +36,26 @@
     <h3 style="color: #FFE6C7;">&nbsp;Third Normal Form (3FN):</h3>
     <h3>&nbsp;&nbsp;Eliminates transitive dependencies, ensuring that each non-key attribute depends only on the primary key, which simplifies maintenance and reduces redundancy.</h3>
 </div>
+<!--SQL-->
+
+<!--NoSQL-->
+<div class="card1" style="margin-top: 10vw;">
+    <h2 style="color: #FFE6C7;">NoSQL Data Bases</h2>
+    <h3>&nbsp;Non-relational databases, or No Structured Query Lenguage, can store data in formats that don't follow a rigid schema, such as documents, emails, videos and social media posts. It`s ideal for applications that deal with large volumes of varied data, such as sentiment analysis, text search and multimedia content management.</h3>
+</div>
+<div class="card1">
+    <h3>&nbsp;JSON (JavaScript Object Notation) is a lightweight data format, easy to read and write, using a key-value structure. BSON (Binary JSON) is a binary version of JSON, used by MongoDB, which is optimized for storage and fast querying, supporting additional data types.</h3>
+</div>
+
+<div class="card2" style="padding: 0 8vw;">
+    <img src="../assets/graphics/jsonExample.png" alt="json file example" width="300px">
+    <div class="card1" style="margin: 2vw;">
+        <h3>Collection = Groups of related documents (= Table in the Relational Model)
+            Documents = Set of fields and values ( = Rows in the Relational Model)</h3>
+    </div>
+</div>
+
+<div class="card1">
+    <h3>&nbsp;How you may have noticed, we also utilized the Atlas MongoDB NoSQL database system in our classes to study how they offer the flexibility and scalability to deal with large volumes of unstructured and rapidly evolving data, meeting the demands of modern applications. In addition, they are essential for understanding technologies used in big data, real-time analysis and agile development.</h3>
+</div>
+<!--NoSQL-->
